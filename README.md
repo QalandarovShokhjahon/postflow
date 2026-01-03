@@ -48,7 +48,7 @@ This project focuses on **content flow**, **UI/UX**, va **JavaScript logic** orq
 ---
 
 ## 🌍 Jonli sayt / Live Demo
-🔗 [Saytni ko‘rish / View Website](https://mentora-ecru.vercel.app/)
+🔗 [Saytni ko‘rish / View Website](https://qalandarovshokhjahon.github.io/postflow/)
 
 ---
 
