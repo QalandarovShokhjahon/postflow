@@ -25,8 +25,8 @@ function renderPosts(filteredPosts = null) {
   postList.innerHTML = '';
   list.forEach((post, index) => {
     const div = document.createElement('div');
-    div.className = 'p-2 border rounded cursor-pointer hover:bg-gray-100';
-    div.innerHTML = `<strong>${post.title || 'No title'}</strong><br><span class="text-sm text-gray-500">${post.platform} | ${post.status}</span>`;
+    div.className = 'p-2 border rounded cursor-pointer hover:bg-gray-100 flex justify-between items-center';
+    div.innerHTML = `<div><strong>${post.title || 'No title'}</strong><br><span class="text-sm text-gray-500">${post.platform} | ${post.status}</span></div><button class="text-red-500 hover:text-red-700" onclick="deletePost(${posts.indexOf(post)}); event.stopPropagation();">Delete</button>`;
     div.onclick = () => selectPost(posts.indexOf(post));
     postList.appendChild(div);
   });
@@ -69,6 +69,24 @@ function savePost() {
   renderPosts();
   renderPreview(post);
   saveToLocalStorage();
+}
+
+// Delete post
+function deletePost(index) {
+  if (confirm('Haqiqatan ham bu postni o\'chirmoqchimisiz?')) {
+    posts.splice(index, 1);
+    if (selectedIndex === index) {
+      selectedIndex = null;
+      document.getElementById('title').value = '';
+      document.getElementById('content').value = '';
+      document.getElementById('hashtags').value = '';
+      document.getElementById('previewContent').innerHTML = 'Postni tanlang yoki yozing...';
+    } else if (selectedIndex > index) {
+      selectedIndex--;
+    }
+    renderPosts();
+    saveToLocalStorage();
+  }
 }
 
 // Render preview

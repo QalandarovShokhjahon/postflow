@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PostFlow MVP</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body class="bg-gray-100 font-sans">
 
@@ -14,13 +15,13 @@
   </header>
 
   <!-- Container -->
-  <div class="flex h-screen">
+  <div class="flex flex-col md:flex-row h-screen">
 
     <!-- Sidebar: Post List -->
-    <div class="w-1/4 bg-white p-4 overflow-y-auto border-r border-gray-300">
+    <div class="w-full md:w-1/4 bg-white p-4 overflow-y-auto border-b md:border-b-0 md:border-r border-gray-300">
       <h3 class="text-lg font-semibold mb-2">Postlar</h3>
       <div id="postList" class="space-y-2"></div>
-      <button class="mt-2 w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700" onclick="addPost()">Yangi Post Qo'shish</button>
+      <button class="mt-2 w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 flex items-center justify-center gap-2" onclick="addPost()"><i class="fas fa-plus"></i> Yangi Post Qo'shish</button>
 
       <!-- Filter by date/status -->
       <div class="mt-4">
@@ -32,7 +33,7 @@
           <option value="Ready">Ready</option>
           <option value="Published">Published</option>
         </select>
-        <button class="w-full bg-gray-500 text-white py-2 rounded hover:bg-gray-600" onclick="applyFilter()">Apply Filter</button>
+        <button class="w-full bg-gray-500 text-white py-2 rounded hover:bg-gray-600 flex items-center justify-center gap-2" onclick="applyFilter()"><i class="fas fa-filter"></i> Apply Filter</button>
       </div>
     </div>
 
@@ -44,7 +45,7 @@
       <input type="text" id="hashtags" placeholder="#taglar" class="w-full p-2 mb-2 border rounded">
 
       <!-- AI Suggestion Mock Button -->
-      <button class="mb-2 w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700" onclick="suggestAI()">AI Tavsiya</button>
+      <button class="mb-2 w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700 flex items-center justify-center gap-2" onclick="suggestAI()"><i class="fas fa-robot"></i> AI Tavsiya</button>
 
       <select id="platform" class="w-full p-2 mb-2 border rounded">
         <option value="Telegram">Telegram</option>
@@ -60,8 +61,8 @@
       </select>
 
       <div class="flex gap-2">
-        <button class="flex-1 bg-green-600 text-white py-2 rounded hover:bg-green-700" onclick="savePost()">Saqlash</button>
-        <button class="flex-1 bg-yellow-500 text-white py-2 rounded hover:bg-yellow-600" onclick="copyPost()">Copy</button>
+        <button class="flex-1 bg-green-600 text-white py-2 rounded hover:bg-green-700 flex items-center justify-center gap-2" onclick="savePost()"><i class="fas fa-save"></i> Saqlash</button>
+        <button class="flex-1 bg-yellow-500 text-white py-2 rounded hover:bg-yellow-600 flex items-center justify-center gap-2" onclick="copyPost()"><i class="fas fa-copy"></i> Copy</button>
       </div>
 
       <!-- Visitor Counter -->
@@ -71,7 +72,7 @@
     </div>
 
     <!-- Preview -->
-    <div class="w-1/4 bg-white p-4 overflow-y-auto border-l border-gray-300">
+    <div class="w-full md:w-1/4 bg-white p-4 overflow-y-auto border-t md:border-t-0 md:border-l border-gray-300">
       <h3 class="text-lg font-semibold mb-2">Preview</h3>
       <div id="previewContent" class="text-gray-700">Postni tanlang yoki yozing...</div>
     </div>
@@ -79,7 +80,7 @@
   </div>
 
   <!-- JS Script -->
-  <script src="app.js"></script>
+  <script src="script.js"></script>
 
 </body>
 </html>
